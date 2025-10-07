@@ -1,18 +1,25 @@
-import { fetchBooks } from "../Lab3/fetchbook.js";
+import { fetchBooks } from "../lab3/fetchbook .js";
+
 document.addEventListener("DOMContentLoaded", () => {
   const booksGrid = document.getElementById("booksGrid");
   const searchInput = document.getElementById("text");
   const searchBtn = document.getElementById("searchBtn");
   const explorerBtn = document.getElementById("explorerBtn");
+
   let favorites = JSON.parse(localStorage.getItem("favorite")) || [];
+
   const saveFavorites = () => localStorage.setItem("favorite", JSON.stringify(favorites));
+
   const renderBooks = (books) => {
     if (!booksGrid) return;
     booksGrid.innerHTML = "";
+
     books.forEach(book => {
       const card = document.createElement("div");
       card.className = "card max-w-xs bg-white rounded-xl shadow-lg overflow-hidden text-center p-4 transition-transform duration-500 hover:translate-y-2 hover:shadow-2xl hover:scale-105";
+
       const isFav = favorites.some(f => f.id === book.id);
+
       card.innerHTML = `
         <img src="${book.img}" alt="${book.title}" class="w-full h-96 object-cover mb-3">
         <h3 class="mt-2 font-semibold text-lg">${book.title}</h3>
@@ -21,6 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
           ${isFav ? "Remove Favorite" : "Add Favorite"}
         </button>
       `;
+
       card.querySelector(".add-fav").addEventListener("click", () => {
         if (favorites.some(f => f.id === book.id)) {
           favorites = favorites.filter(f => f.id !== book.id);
@@ -30,26 +38,33 @@ document.addEventListener("DOMContentLoaded", () => {
         saveFavorites();
         renderBooks(books);
       });
+
       booksGrid.appendChild(card);
     });
   };
+
   const doSearch = async () => {
     const query = (searchInput?.value || "").trim() || "fiction";
     const books = await fetchBooks(query);
     renderBooks(books);
   };
+
   searchBtn.addEventListener("click", doSearch);
   searchInput.addEventListener("keydown", e => { if (e.key === "Enter") doSearch(); });
+
   explorerBtn.addEventListener("click", async () => {
     const originalText = explorerBtn.textContent;
     explorerBtn.textContent = "Loading...";
     explorerBtn.disabled = true;
+
     const books = await fetchBooks("bestseller");
     renderBooks(books);
+
     booksGrid.scrollIntoView({ behavior: "smooth", block: "start" });
     explorerBtn.textContent = originalText;
     explorerBtn.disabled = false;
   });
+
   // Initial load
   (async () => {
     const books = await fetchBooks();
