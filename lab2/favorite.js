@@ -1,4 +1,4 @@
-favorite.jsdocument.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", () => {
   const favGrid = document.getElementById("favorite-list");
   let favorites = JSON.parse(localStorage.getItem("favorite")) || [];
   const renderFavorites = () => {
