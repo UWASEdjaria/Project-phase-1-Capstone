@@ -1,4 +1,4 @@
-import { fetchBooks } from "../lab3/fetchbook .js";
+import { fetchBooks } from "../lab3/fetchbook.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   const booksGrid = document.getElementById("booksGrid");
@@ -13,6 +13,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const renderBooks = (books) => {
     if (!booksGrid) return;
     booksGrid.innerHTML = "";
+
+    if (!books || books.length === 0) {
+      booksGrid.innerHTML = '<p class="col-span-full text-center text-gray-500 text-xl">No books found. Try a different search!</p>';
+      return;
+    }
 
     books.forEach(book => {
       const card = document.createElement("div");
@@ -44,30 +49,43 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   const doSearch = async () => {
-    const query = (searchInput?.value || "").trim() || "fiction";
-    const books = await fetchBooks(query);
+    if (!searchInput) return;
+    const query = (searchInput.value || "").trim() || "popular books";
+    const books = await fetchBooks(query, 24);
     renderBooks(books);
   };
 
-  searchBtn.addEventListener("click", doSearch);
-  searchInput.addEventListener("keydown", e => { if (e.key === "Enter") doSearch(); });
+  if (searchBtn) {
+    searchBtn.addEventListener("click", doSearch);
+  }
+  
+  if (searchInput) {
+    searchInput.addEventListener("keydown", e => { 
+      if (e.key === "Enter") doSearch(); 
+    });
+  }
 
-  explorerBtn.addEventListener("click", async () => {
-    const originalText = explorerBtn.textContent;
-    explorerBtn.textContent = "Loading...";
-    explorerBtn.disabled = true;
+  if (explorerBtn) {
+    explorerBtn.addEventListener("click", async () => {
+      const originalText = explorerBtn.textContent;
+      explorerBtn.textContent = "Loading...";
+      explorerBtn.disabled = true;
 
-    const books = await fetchBooks("bestseller");
-    renderBooks(books);
+      const books = await fetchBooks("bestseller", 24);
+      renderBooks(books);
 
-    booksGrid.scrollIntoView({ behavior: "smooth", block: "start" });
-    explorerBtn.textContent = originalText;
-    explorerBtn.disabled = false;
-  });
+      if (booksGrid) {
+        booksGrid.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+      explorerBtn.textContent = originalText;
+      explorerBtn.disabled = false;
+    });
+  }
 
-  // Initial load
+  // Initial load - Load many books on page load
   (async () => {
-    const books = await fetchBooks();
+    booksGrid.innerHTML = '<p class="col-span-full text-center text-gray-500 text-xl">Loading books...</p>';
+    const books = await fetchBooks("popular books", 24);
     renderBooks(books);
   })();
 });
