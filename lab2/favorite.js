@@ -17,10 +17,18 @@ document.addEventListener("DOMContentLoaded", () => {
         <button class="remove-fav bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600 mt-2">Remove</button>
       `;
       div.querySelector(".remove-fav").addEventListener("click", () => {
-        favorites = favorites.filter(f => f.id !== book.id);
-        localStorage.setItem("favorites", JSON.stringify(favorites));
-        renderFavorites();
-      });
+        
+  const confirmRemove = confirm(`Are you sure you want to remove "${book.title}" from favorites?`);
+  if (confirmRemove) {
+    favorites = favorites.filter(f => f.id !== book.id);
+    localStorage.setItem("favorites", JSON.stringify(favorites));
+    renderFavorites();
+    alert(`"${book.title}" has been removed.`);
+  } else {
+    alert("Action canceled.");
+  }
+});
+
       favGrid.appendChild(div);
     });
   };
