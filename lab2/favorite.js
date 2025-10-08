@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
         <img src="${book.img}" alt="${book.title}" class="w-full h-72 object-cover mb-3">
         <h3 class="font-semibold text-lg">${book.title}</h3>
         <p class="text-gray-600 mb-2">${book.author}</p>
-        <button class="remove-fav bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600 mt-2">Remove</button>
+        <button class="remove-fav mx-auto m-5 p-2 border-2 border-purple-900 px-4 py-2 bg-white text-purple-700 font-semibold rounded-lg hover:bg-purple-500 text-black font-boldgit  transition duration-300">Remove</button>
       `;
       div.querySelector(".remove-fav").addEventListener("click", () => {
   const confirmRemove = confirm(`Are you sure you want to remove "${book.title}" from favorites?`);
