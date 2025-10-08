@@ -29,11 +29,26 @@ document.addEventListener("DOMContentLoaded", () => {
         <img src="${book.img}" alt="${book.title}" class="w-full h-96 object-cover mb-3">
         <h3 class="mt-2 font-semibold text-lg">${book.title}</h3>
         <p class="text-gray-600">${book.author}</p>
-        <button class="add-fav border-2 border-purple-700 p-2 m-2 rounded-lg hover:bg-purple-400 hover:border-purple-600 shadow-lg">
-          ${isFav ? "Remove Favorite" : "Add Favorite"}
-        </button>
+        <div class="flex gap-2 justify-center">
+          <button class="read-btn bg-purple-700 text-white p-2 m-2 rounded-lg hover:bg-purple-800 shadow-lg font-semibold">
+            Read Book
+          </button>
+          <button class="add-fav border-2 border-purple-700 p-2 m-2 rounded-lg hover:bg-purple-400 hover:border-purple-600 shadow-lg">
+            ${isFav ? "Remove Favorite" : "Add Favorite"}
+          </button>
+        </div>
       `;
 
+      // Read Book button
+      card.querySelector(".read-btn").addEventListener("click", () => {
+        if (book.readUrl) {
+          window.open(book.readUrl, '_blank');
+        } else {
+          alert(`Sorry, "${book.title}" is not available to read online.`);
+        }
+      });
+
+      // Add/Remove Favorite button
       card.querySelector(".add-fav").addEventListener("click", () => {
         const isFav = favorites.some(f => f.id === book.id);
         
@@ -50,7 +65,7 @@ document.addEventListener("DOMContentLoaded", () => {
         } else {
           const confirmAdd = confirm(`Do you want to add "${book.title}" to your favorites?`);
           if (confirmAdd) {
-            favorites.push({ id: book.id, title: book.title, author: book.author, img: book.img });
+            favorites.push({ id: book.id, title: book.title, author: book.author, img: book.img, readUrl: book.readUrl });
             alert(`"${book.title}" has been added to favorites!`);
             saveFavorites();
             renderBooks(books);

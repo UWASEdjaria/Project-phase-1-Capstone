@@ -11,7 +11,9 @@ export async function fetchBooks(query = "popular books", limit = 24) {
       author: doc.author_name?.[0] || "Unknown Author",
       img: doc.cover_i 
         ? `https://covers.openlibrary.org/b/id/${doc.cover_i}-L.jpg`
-        : "https://via.placeholder.com/300x400?text=No+Cover"
+        : "https://via.placeholder.com/300x400?text=No+Cover",
+      readUrl: doc.key ? `https://openlibrary.org${doc.key}` : null,
+      isbn: doc.isbn?.[0] || null
     }));
   } catch (error) {
     console.error("Error fetching books:", error);

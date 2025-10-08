@@ -18,9 +18,14 @@ document.addEventListener("DOMContentLoaded", () => {
         <img src="${book.img || 'https://via.placeholder.com/150'}" alt="${book.title || 'Unknown Title'}" class="w-full h-72 object-cover mb-3">
         <h3 class="font-semibold text-lg">${book.title || 'Unknown Title'}</h3>
         <p class="text-gray-600 mb-2">${book.author || 'Unknown Author'}</p>
-        <button class="remove-fav mx-auto m-5 p-2 border-2 border-purple-900 px-4 py-2 bg-white text-purple-700 font-semibold rounded-lg hover:bg-purple-500 transition duration-300">
-          Remove
-        </button>
+        <div class="flex gap-2 justify-center">
+          <button class="read-btn bg-purple-700 text-white p-2 m-2 rounded-lg hover:bg-purple-800 shadow-lg font-semibold">
+            Read Book
+          </button>
+          <button class="remove-fav p-2 m-2 border-2 border-purple-900 bg-white text-purple-700 font-semibold rounded-lg hover:bg-purple-500 transition duration-300">
+            Remove
+          </button>
+        </div>
       `;
       
       div.querySelector(".remove-fav").addEventListener("click", () => {
