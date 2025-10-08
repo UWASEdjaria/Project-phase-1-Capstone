@@ -13,20 +13,19 @@ document.addEventListener("DOMContentLoaded", () => {
       div.innerHTML = `
         <img src="${book.img}" alt="${book.title}" class="w-full h-72 object-cover mb-3">
         <h3 class="font-semibold text-lg">${book.title}</h3>
-        <p class="text-gray-600 mb-2">${book.author}</p>
-        <button class="remove-fav mx-auto m-5 p-2 border-2 border-purple-900 px-4 py-2 bg-white text-purple-700 font-semibold rounded-lg hover:bg-purple-500 text-black font-boldgit  transition duration-300">Remove</button>
+        <button class="remove-fav mx-auto m-5 p-2 border-2 border-purple-900 px-4 py-2 bg-white text-purple-700 font-semibold rounded-lg hover:bg-purple-500 transition duration-300">Remove</button>
       `;
       div.querySelector(".remove-fav").addEventListener("click", () => {
-  const confirmRemove = confirm(`Are you sure you want to remove "${book.title}" from favorites?`);
-  if (confirmRemove) {
-    favorites = favorites.filter(f => f.id !== book.id);
-    localStorage.setItem("favorites", JSON.stringify(favorites));
-    renderFavorites();
-    alert(`"${book.title}" has been removed.`);
-  } else {
-    alert("Action canceled.");
-  }
-});
+        const confirmRemove = confirm(`Are you sure you want to remove "${book.title}" from favorites?`);
+        if (confirmRemove) {
+          favorites = favorites.filter(f => f.id !== book.id);
+          localStorage.setItem("favorite", JSON.stringify(favorites));
+          renderFavorites();
+          alert(`"${book.title}" has been removed.`);
+        } else {
+          alert("Action canceled.");
+        }
+      });
 
       favGrid.appendChild(div);
     });
