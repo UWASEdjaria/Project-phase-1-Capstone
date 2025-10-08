@@ -35,13 +35,29 @@ document.addEventListener("DOMContentLoaded", () => {
       `;
 
       card.querySelector(".add-fav").addEventListener("click", () => {
-        if (favorites.some(f => f.id === book.id)) {
-          favorites = favorites.filter(f => f.id !== book.id);
+        const isFav = favorites.some(f => f.id === book.id);
+        
+        if (isFav) {
+          const confirmRemove = confirm(`Are you sure you want to remove "${book.title}" from favorites?`);
+          if (confirmRemove) {
+            favorites = favorites.filter(f => f.id !== book.id);
+            alert(`"${book.title}" has been removed from favorites!`);
+            saveFavorites();
+            renderBooks(books);
+          } else {
+            alert("Action canceled.");
+          }
         } else {
-          favorites.push({ id: book.id, title: book.title, author: book.author, img: book.img });
+          const confirmAdd = confirm(`Do you want to add "${book.title}" to your favorites?`);
+          if (confirmAdd) {
+            favorites.push({ id: book.id, title: book.title, author: book.author, img: book.img });
+            alert(`"${book.title}" has been added to favorites!`);
+            saveFavorites();
+            renderBooks(books);
+          } else {
+            alert("Action canceled.");
+          }
         }
-        saveFavorites();
-        renderBooks(books);
       });
 
       booksGrid.appendChild(card);
