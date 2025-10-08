@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   const favGrid = document.getElementById("favorite-list");
-  let favorites = JSON.parse(localStorage.getItem("favorite")) || [];
+  let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
   const renderFavorites = () => {
     favGrid.innerHTML = "";
     if (favorites.length === 0) {
@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
       `;
       div.querySelector(".remove-fav").addEventListener("click", () => {
         favorites = favorites.filter(f => f.id !== book.id);
-        localStorage.setItem("favorite", JSON.stringify(favorites));
+        localStorage.setItem("favorites", JSON.stringify(favorites));
         renderFavorites();
       });
       favGrid.appendChild(div);
