@@ -68,21 +68,7 @@ node server.js
 ```
 http://localhost:3000
 ```
-
-### Option 2: Using npx http-server
-
-```bash
-npx http-server -p 3000 -o /lab1/index.html
-```
-
-### Option 3: Using Python
-
-```bash
-python -m http.server 3000
-```
-Then open: http://localhost:3000/lab1/index.html
-
-### Option 4: Using VS Code Live Server Extension
+### Option 2: Using VS Code Live Server Extension
 
 1. Install "Live Server" extension in VS Code
 2. Right-click on `lab1/index.html`
