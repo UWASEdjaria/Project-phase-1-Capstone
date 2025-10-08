@@ -6,9 +6,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const searchBtn = document.getElementById("searchBtn");
   const explorerBtn = document.getElementById("explorerBtn");
 
-  let favorites = JSON.parse(localStorage.getItem("favorite")) || [];
+  let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
 
-  const saveFavorites = () => localStorage.setItem("favorite", JSON.stringify(favorites));
+  const saveFavorites = () => localStorage.setItem("favorites", JSON.stringify(favorites));
 
   const renderBooks = (books) => {
     if (!booksGrid) return;
