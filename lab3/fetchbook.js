@@ -1,7 +1,7 @@
 // fetchBooks.js
-export async function fetchBooks(query = "fiction") {
+export async function fetchBooks(query = "popular books", limit = 24) {
   try {
-    const response = await fetch(`https://openlibrary.org/search.json?q=${query}&limit=12`);
+    const response = await fetch(`https://openlibrary.org/search.json?q=${query}&limit=${limit}`);
     const data = await response.json();
     
     // Map OpenLibrary data to expected format
