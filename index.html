@@ -9,32 +9,40 @@
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body class="bg-black  font-sans">
+<body class="bg-black  font-sans min-h-screen">
   <div class="w-full bg-cover bg-center bg-no-repeat " style="background-image:url('background\ pic.jpg');">
-   <header class="flex  flex-row pt-3 py-3 px-2  border-4  border-purple-600 rounded-full hover:bg-gray-800 duration-300 hover:scale-105 justify-between  w-full">
-      <h1 class="text-3xl md:text-4xl lg:text-5xl  font-bold text-purple-500 text-center">
-        I'm Djaria UWASE
+   <header class="flex  flex-row pt-3 py-3 px-8  transition-transform duration-300 hover:scale-105 justify-between  w-full">
+      <h1 class="text-3xl md:text-4xl lg:text-5xl shadow-lg font-bold text-purple-500 text-center">
+        Djaria<span class="text-white">.is.</span>coding
       </h1>
-      <nav class="flex  space-x-4 items-center  text-md sm:text-sm  font-bold text-blue-500">
-        <a href="about.html" class="hover:text-blue-400">About Me</a>
-        <a href="projects.html" class="hover:text-blue-400">Projects</a>
-        <a href="contact.html" class="hover:text-blue-400">Contact Form</a>
+      <nav class="flex shadow-lg space-x-4 items-center  text-md sm:text-sm  font-bold text-white px-4">
+        <a href="about.html" class="hover:text-purple-400">About Me</a>
+        <a href="projects.html" class="hover:text-purple-400">Projects</a>
+        <a href="contact.html" class="hover:text-purple-400">Contact Form</a>
       </nav>
     </header>
+    <div class="flex  justify-end p-4 sm:p-2 md:p-4 lg:p-6">
    <main>
-  <div class="flex flex-col items-center justify-center min-h-screen p-5">
+  <div class="flex flex-col  justify-start min-h-screen p-5">
     
-    <h2 class="text-2xl text-purple-900 text-white:text-4xl md:text-4xl lg:text-5xl font-bold mb-4 text-center">Hello,</h2>
+    <h2 class="text-2xl text-purple-800 text-white:text-4xl md:text-4xl lg:text-5xl font-bold mb-4 text-center">Hello,</h2>
 
     <p class="text-2xl text-white md:text-3xl text-center mb-6">
       Frontend Developer | UI/UX Designer |
     </p>
-
-    <button class="bg-purple-500 text-white font-bold px-6 py-3 rounded-full hover:bg-purple-600 transition">
+    <button class="bg-purple-500 text-white font-bold p-2 shadow-lg  rounded-lg w-full max-w-sm mx-auto space-y-4 hover:bg-purple-600  transition-transform duration-300 hover:scale-105">
       See what else I've built
     </button>
+ 
+   <h2 class="flex  justify-center gap-6 p-6 sm:p-2 md:p-4 lg:p-6 text-white text-4xl sm:text-2xl md:text-4xl lg:text-5xl">Techinique skills</h2>
+  <div class="text-white  rounded-lg w-full max-w-sm mx-auto space-y-4">
+      <div class=" border border-purple-800 text-white rounded-lg shadow-lg p-4  text-center hover:bg-purple-700 transition-transform duration-300 hover:scale-105">HTML</div>
+      <div class="border border-purple-800 text-white rounded-lg shadow-lg p-4 text-center hover:bg-purple-700 transition transform duration-300 hover:scale-105">Tailwindcss</div>
+      <div class="border border-purple-800 text-white rounded-lg shadow-lg p-4 text-center hover:bg-purple-700 transition transform duration-300 hover:scale-105">JavaScript</div>
+      </div>
+   </div>
   </div>
   </div>
- </main>
+</main>
 </body>
 </html>
