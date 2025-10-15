@@ -38,6 +38,4 @@ Copy code
 - Outcome: Applied advanced Git techniques
 
 ## 📸 Screenshots (in main folder)
-![Lab 1 Screenshot](lab1.png)
-![Lab 2 Screenshot](lab2.png)
-![Lab 3 Screenshot](lab3.png)
+
