@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book Explorer</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body  class="bg-white font-sans">
+
+  <!-- Search -->
+  <div class="flex inline-flex justify-between rounded-lg w-full sm:w-3/4 md:w-1/4 p-3 bg-purple-400 m-5 gap-4 transition-transform duration-500 hover:scale-105 shadow-lg">
+    <input type="text" id="text" placeholder="Search book name, author" class="border-2 w-full p-1 m-1 rounded-lg">
+    <button id="searchBtn" class="italic font-bold bg-purple-500 p-1 m-2 rounded-lg hover:bg-purple-600 hover:border-purple-600 shadow-lg">Search</button>
+  </div>
+
+  <!-- Header & Navigation -->
+  <header  class="flex text-purple-700 justify-between bg-white text-black rounded-lg p-5 font-bold shadow-lg transition-transform duration-500 hover:scale-105">
+    <h1 class="text-3xl sm:text-2xl md:text-3xl lg:text-5xl border-b-4 border-transparent hover:border-purple-900 transition-transform duration-500 hover:scale-105">Book Explorer</h1>
+    <nav  class="text-sm sm:text-sm md:text-md lg:text-lg space-x-4 transition-transform duration-500 hover:scale-105" >
+      <a href="home.html" class="border-b-4 border-transparent hover:border-purple-900">Home</a>
+      <a href="about.html" class="border-b-4 border-transparent hover:border-purple-900">About</a>
+      <a href="../Lab2/favorite.html"class="border-b-4 border-transparent hover:border-purple-900">Favorites</a>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section>
+    <h2 class="font-bold text-2xl sm:text-2xl md:text-3xl lg:text-4xl">Keep the story going</h2>
+    <p class="text-md leading-relaxed mt-2">Don't let the story end. Continue reading and immerse yourself in literature.</p>
+  </section>
+
+  <!-- Books Section -->
+  <section id="booksGrid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 m-8 gap-6 justify-center cursor-pointer">
+    <!--card 1-->
+    <div class="card  max-w-xs bg-white rounded-xl shadow-lg overflow-hidden text-center transition-transform duration-500 hover:translate-y-2 hover:shadow-2xl hover:scale-105" >
+      <img src="https://covers.openlibrary.org/b/id/8231856-L.jpg" alt="Dad Is Fat"  class="w-full h-96 object-cover">
+      <h3 class="mt-2 font-semibold text-lg">Dad Is Fat</h3>
+      <p class="text-gray-600">Jim Gaffigan</p>
+      <button class="add-fav add-fav border-2 border-purple-700 p-2 m-2 rounded-lg hover:bg-purple-400 hover:border-purple-600 shadow-lg">Add Favorite</button>
+    </div>
+  <!--card 2-->
+    <div class="card max-w-xs bg-white rounded-xl shadow-lg overflow-hidden text-center transition-transform duration-500 hover:translate-y-2 hover:shadow-2xl hover:scale-105 ">
+      <img src="https://covers.openlibrary.org/b/id/5546156-L.jpg" alt="Bossypants"  class="w-full h-96 object-cover">
+      <h3 class="mt-2 font-semibold text-lg">Bossypants</h3>
+      <p  class="text-gray-600">Tina Fey</p>
+      <button class="add-fav border-2 border-purple-700 p-2 m-2 rounded-lg hover:bg-purple-400 hover:border-purple-600 shadow-lg">Add Favorite</button>
+    </div>
+  <!--card 3-->
+    <div class="card  max-w-xs bg-white rounded-xl shadow-lg overflow-hidden text-center transition-transform duration-500 hover:translate-y-2 hover:shadow-2xl hover:scale-105">
+      <img src="https://covers.openlibrary.org/b/id/8228696-L.jpg" alt="Me Talk Pretty One Day" class="w-full h-96 object-cover">
+      <h3 class="mt-2 font-semibold text-lg">Me Talk Pretty One Day</h3>
+      <p  class="text-gray-600">David Sedaris</p>
+      <button class="add-fav border-2 border-purple-700 p-2 m-2 rounded-lg hover:bg-purple-400 hover:border-purple-600 shadow-lg">Add Favorite</button>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-purple-600 text-white text-center py-6 mt-12">
+    <p  class="text-lg font-semibold">Check out new collection! A must-read for any fan—don’t miss out!</p>
+    <button id="explorerBtn" class="mx-auto m-5 p-2 border-2 border-purple-900 px-4 py-2 bg-white text-purple-700 font-semibold rounded-lg hover:bg-purple-300 transition duration-300">Explore Now</button>
+    <p  class="text-sm mt-2">© 2025 Your Book Explorer App</p>
+  </footer>
+
+  <script type="module" src="../lab2/home.js"></script>
+
+</body>
+</html>
